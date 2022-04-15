@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="This is where your description goes">
+	<meta name="keywords" content="one, two, three">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>DnD GM Assistant</title>
+
+	<!-- external CSS link -->
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Fonts & Icons-->
+	<link href="https://fonts.googleapis.com/css2?family=Graduate&family=Source+Sans+Pro:wght@400;600&display=swap"
+		rel="stylesheet">
+	<script src="https://kit.fontawesome.com/8745b435ef.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+	<header>
+		<img id="gildedGoatMain" src="css/images/Gilded Goat Full Logo.png" alt="logo for the gilded goat">
+		<!-- <nav>
+			<a href="#magicItemGenerator"><i class="fa-solid fa-wand-sparkles"></i></a>
+			<a href="#monsterGenerator"><i class="fa-solid fa-spaghetti-monster-flying"></i></a>
+			<a href="#npcGenerator"><i class="fa-solid fa-person"></i></a>
+		</nav> -->
+		<!-- <button class="blue">Sign In</button> -->
+	</header>
+
+
+	<main>
+		<section id="gildedGoatIntro">
+			<section class="oneThird">
+				<h1 class="title">The Gilded Goat</h1>
+				<p>TTRPG Resources to keep your games moving</p>
+				<div class="buttonHolder">
+					<button class="yellow">I'm A GM</button>
+					<button class="peach">I'm A Player</button>
+				</div>
+			</section>
+
+			<img class="twoThirds" src="css/images/wizardAndBook.png"
+				alt="An illustration of a wizard reading a book while levitating">
+		</section>
+
+		<section id="forGMs">
+			<section class="overview">
+				<h1>GM's Assistant</h1>
+				<p>Randomly generating the stuff you need to get back to your table sooner.</p>
+			</section>
+
+			<!-- Holds All Generators -->
+			<section class="generatorContainer">
+
+				<!-- Magic Item Generator -->
+				<section id="magicItemGenerator" class="generator">
+					<h2>Random Magic Item Generator</h2>
+
+					<label for="selectRarity">Choose Item Rarity:</label>
+					<select id="selectRarity">
+						<option value=""> -- </option>
+						<option value="common">Common</option>
+						<option value="uncommon">Uncommon</option>
+						<option value="rare">Rare</option>
+						<option value="veryRare">Very Rare</option>
+						<option value="legendary">Legendary</option>
+						<option value="artifact">Artifact</option>
+					</select>
+
+					<button type="button" id="magicItemButton" name="button">Get Item</button>
+
+					<section>
+						<h3 class="magicItem"></h3>
+						<p class="rarity"></p>
+						<p class="itemType"></p>
+						<p class="itemDescription"></p>
+					</section>
+				</section>
+
+				<!-- Monster Generator -->
+				<section id="monsterGenerator" class="generator">
+					<h2>Random Monster Generator</h2>
+					<label for="selectCR">Choose Monster Type:</label>
+					<select id="selectCR">
+						<option value=""> -- </option>
+						<option value="aberration">Aberration</option>
+						<option value="beast">Beast</option>
+						<option value="celestial">Celestial</option>
+						<option value="construct">Construct</option>
+						<option value="dragon">Dragon</option>
+						<option value="elemental">Elemental</option>
+						<option value="fey">Fey</option>
+						<option value="fiend">Fiend</option>
+						<option value="giant">Giant</option>
+						<option value="humanoid">Humanoid</option>
+						<option value="monstrosity">Monstrosity</option>
+						<option value="ooze">Ooze</option>
+						<option value="plant">Plant</option>
+						<option value="Undead">Undead</option>
+					</select>
+
+					<button type="button" id="monsterButton" name="button">Get Monster</button>
+
+					<h3 class="monsterName"></h3>
+
+					<section class="monsterInfo">
+						<p class="monsterChallengeRating"></p>
+						<p class="monsterHP"></p>
+						<p class="monsterSize"></p>
+						<p class="monsterType"></p>
+					</section>
+
+					<section class="monsterAttacks"></section>
+					<p class="monsterLegendaryActions"></p>
+				</section>
+
+				<!-- NPC Generator -->
+				<section id="npcGenerator" class="generator">
+					<h2>NPC Name Generator</h2>
+
+					<section class="formBox">
+						<label for="chooseRace">Choose NPC Race:</label>
+						<select id="chooseRace">
+							<option value=""> -- </option>
+							<option value="dragonborn">Dragonborn</option>
+							<option value="dwarf">Dwarf</option>
+							<option value="elf">Elf</option>
+							<option value="halfling">Halfling</option>
+							<option value="halfOrc">Half Orc</option>
+							<option value="human">Human</option>
+							<option value="tiefling">Tiefling</option>
+						</select>
+						<br>
+						<label for="chooseGender">Choose NPC Gender:</label>
+						<select id="chooseGender">
+							<option value=""> -- </option>
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+						</select>
+
+						<button type="button" id="npcNameButton" name="button">Get Name</button>
+					</section>
+
+					<section>
+						<h3 class="npcName"></h3>
+						<p class="npcAge"></p>
+						<p class="npcBackground"></p>
+						<p class="npcAlignment"></p>
+					</section>
+				</section>
+			</section>
+		</section>
+	</main>
+	<footer>
+		<p>Katie Brown Web Development</p>
+	</footer>
+
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

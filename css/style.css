@@ -1,0 +1,176 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.blue {
+  background-color: #82A7AF;
+}
+.blue:hover {
+  background-color: #6c8a91;
+}
+.peach {
+  background-color: #C96B59;
+}
+.peach:hover {
+  background-color: #924e40;
+}
+.yellow {
+  background-color: #FFC97D;
+}
+.yellow:hover {
+  background-color: #c59b61;
+}
+
+button {
+  width: 110px;
+  height: 35px;
+  border: none;
+  border-radius: 3%;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+body {
+  text-align: center;
+}
+
+/* Header */
+header {
+  width: 100%;
+  /* display: flex;
+  justify-content: space-between; */
+  margin: auto;
+  align-items: center;
+  margin-top: 2px;
+}
+header > nav {
+  width: 50%;
+  display: flex;
+  align-content: flex-end;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 15px;
+}
+header > a {
+  text-decoration: none;
+  color: black;
+}
+header > button {
+  margin-right: 15px;
+}
+#gildedGoatMain {
+  width: 100px;
+  margin-left: 10px;
+}
+
+
+/* Gilded Goat Intro */
+#gildedGoatIntro {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.title {
+  font-family: 'Graduate', cursive;
+  font-weight: 400;
+  font-size: 80px;
+  color: #82A7AF;
+  margin-bottom: 5px;
+}
+.oneThird {
+  width: 30%;
+  margin-right: 40px;
+}
+.twoThirds {
+  width: 55%;
+}
+#gildedGoatIntro > img {
+  width: 30%;
+  height: auto;
+}
+.buttonHolder {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+/* GM Content */
+#forGMs {
+  width: 90%;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 1%;
+  background-color: #FFC97D;
+}
+
+.generatorContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.generator {
+  width: 30%;
+  min-height: 225px;
+  margin-top: 20px;
+  background-color: #FFE2BD;
+  border-radius: .5%;
+  box-shadow: 3px 3px 3px #C96B59;
+}
+
+.generator > h2 {
+  width: 100%;
+  background-color: #C96B59;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.generator > button:hover, .formBox > button:hover {
+  background-color: #a09c9b;
+}
+
+p {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.monsterInfo {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.monsterInfo > p {
+  width: 45%;
+}
+
+
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+@media screen and (max-width: 750px) {
+  .generatorContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .generator {
+    width: 90%;
+  }
+
+}
