@@ -157,9 +157,60 @@ function getNPC() {
 }
 
 
-// Shows Nav Menu
-// function showNav() {
-//   document.querySelector('#navMenu').classList.remove('hidden')
-// }
+// For Character Builder
+// Updating Subclass Options Based on Class Selection
+document.querySelector('#subclassSelect').addEventListener('click', updateSubclassDropdown)
 
+function updateSubclassDropdown() {
+  let selectedClass = document.querySelector('#classSelect').value
+  let dropdown = document.querySelector('#subclassSelect')
+  dropdown.length = 0
 
+  let defaultOption = document.createElement('option')
+  defaultOption.text = 'Random'
+  defaultOption.value = 'random'
+
+  dropdown.add(defaultOption)
+  dropdown.selectedIndex = 0
+
+  let url = `https://www.dnd5eapi.co/api/classes/${selectedClass}/subclasses`
+
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      let option
+
+      for (let i = 0; i < data.results.length; i++) {
+        option = document.createElement('option')
+        option.text = data.results[i].name
+        option.value = data.results[i].index
+        dropdown.add(option)
+      }
+    })
+}
+
+// Storing Character Information in Local Storage
+document.querySelector('#charBuilderButton').addEventListener('click', makeCharacter)
+
+function makeCharacter() {
+  let characterName = document.querySelector('#characterName').value
+  localStorage.setItem('charName', characterName)
+
+  let characterImg = document.querySelector('#imgUrl').value
+  localStorage.setItem('imgUrl', characterImg)
+
+  let accentColor = document.querySelector('#characterColor').value
+  localStorage.setItem('charColor', accentColor)
+
+  let charLevel = document.querySelector('#level').value
+  localStorage.setItem('charLevel', charLevel)
+
+  let charClass = document.querySelector('#classSelect').value
+  localStorage.setItem('charClass', charClass)
+
+  let charSubclass = document.querySelector('#subclassSelect')
+  localStorage.setItem('charSubclass', charSubclass)
+
+  // Need to change this code to create an object with the name of the character name. Then sort through objects to populate cards. Should check in local storage on page load.
+
+}
