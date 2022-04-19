@@ -136,7 +136,7 @@ header > button {
   padding-bottom: 10px;
   margin-top: 0;
 }
-.generator > button:hover, .formBox > button:hover {
+.generator > button:hover, .formBox > button:hover, .characterBuilder > button:hover {
   background-color: #a09c9b;
 }
 p {
@@ -208,6 +208,9 @@ p {
   margin: 5px;
 }
 .spacer > label, .spacer > select {
+  margin: 5px;
+}
+#charBuilderButton {
   margin: 5px;
 }
 /******************************************
