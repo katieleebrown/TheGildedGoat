@@ -154,6 +154,84 @@
 				</section>
 			</section>
 		</section>
+
+		<section id="forPlayers">
+			<section class="overview">
+				<h1>Character Builder</h1>
+				<p>Keeping all of your characters in one place. What will you create?</p>
+			</section>
+
+			<!-- Holds All Characters -->
+			<section id="characterHolder">
+				<!-- Sample Card -->
+				<!-- <section id="" class="characterCard">
+					<h2>Tola Redhammer</h2>
+					<img src="css/images/Tola-square.png" alt="Tola Redhammer">
+					<p class="class"><strong>Class:</strong> Cleric</p>
+					<p class="subclass"><strong>Subclass:</strong> Life Cleric</p>
+					<p class="level"><strong>Level:</strong> 15</p>
+				</section> -->
+
+				<!-- Input Card -->
+				<section class="characterCard">
+					<h2>Build New Character</h2>
+					<form>
+						<section class="inputRow">
+							<label for="characterName">Character Name: </label>
+							<input type="text" id="characterName" name="characterName" value="Character Name">
+						</section>
+						<section class="inputRow">
+							<label for="imgUrl">Character Image URL:</label>
+							<input type="text" id="imgUrl" name="imgUrl" value="URL here">
+						</section>
+						<section class="inputRow">
+							<label for="characterColor">Choose an Accent Color:</label>
+							<input type="color" id="characterColor" name="characterColor" value="">
+						</section>
+						<section class="inputRow">
+							<label for="level">Character Level: </label>
+							<input type="number" id="level" name="characterLevel" value="1" min="1" max="20">
+						</section>
+
+						<section class="classAndSubclass">
+							<div class="spacer">
+								<label for="classSelect">Choose Your Class:</label>
+								<select name="class" id="classSelect">
+									<option value="random">Random</option>
+									<option value="barbarian">Barbarian</option>
+									<option value="bard">Bard</option>
+									<option value="cleric">Cleric</option>
+									<option value="druid">Druid</option>
+									<option value="fighter">Fighter</option>
+									<option value="monk">Monk</option>
+									<option value="paladin">Paladin</option>
+									<option value="ranger">Ranger</option>
+									<option value="rogue">Rogue</option>
+									<option value="sorcerer">Sorcerer</option>
+									<option value="warlock">Warlock</option>
+									<option value="wizard">Wizard</option>
+								</select>
+							</div>
+
+							<div class="spacer">
+								<label for="subclassSelect">Choose Your Subclass:</label>
+								<select name="subclass" id="subclassSelect">
+									<option value="random">Random</option>
+									<option value=""></option>
+									<option value=""></option>
+									<option value=""></option>
+								</select>
+							</div>
+						</section>
+
+
+					</form>
+
+				</section>
+
+			</section>
+
+		</section>
 	</main>
 	<footer>
 		<p>Katie Brown Web Development</p>

@@ -114,7 +114,6 @@ header > button {
   border-radius: 1%;
   background-color: #FFC97D;
 }
-
 .generatorContainer {
   display: flex;
   width: 100%;
@@ -122,7 +121,6 @@ header > button {
   align-items: flex-start;
   flex-wrap: wrap;
 }
-
 .generator {
   width: 30%;
   min-height: 225px;
@@ -131,7 +129,6 @@ header > button {
   border-radius: .5%;
   box-shadow: 3px 3px 3px #C96B59;
 }
-
 .generator > h2 {
   width: 100%;
   background-color: #C96B59;
@@ -139,27 +136,80 @@ header > button {
   padding-bottom: 10px;
   margin-top: 0;
 }
-
 .generator > button:hover, .formBox > button:hover {
   background-color: #a09c9b;
 }
-
 p {
   width: 80%;
   margin: 20px auto;
 }
-
 .monsterInfo {
   display: flex;
   flex-wrap: wrap;
 }
-
 .monsterInfo > p {
   width: 45%;
 }
 
 
+/* For Players */
+#forPlayers {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 1%;
+  background-color: #82A7AF;
+}
 
+#characterHolder {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.characterCard {
+  width: 30%;
+  min-height: 225px;
+  margin-top: 20px;
+  background-color: #FFE2BD;
+  border-radius: .5%;
+  box-shadow: 3px 3px 3px #C96B59;
+}
+
+.characterCard > h2 {
+  width: 100%;
+  background-color: #C96B59;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+.characterCard img {
+  width: 60%;
+  border: 3px solid #C96B59;
+}
+
+.characterCard form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputRow {
+  margin: 5px;
+}
+.classAndSubclass {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+.spacer > label, .spacer > select {
+  margin: 5px;
+}
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
