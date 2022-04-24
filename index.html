@@ -164,13 +164,13 @@
 			<!-- Holds All Characters -->
 			<section id="characterHolder">
 				<!-- Sample Card -->
-				<!-- <section id="" class="characterCard">
-					<h2>Tola Redhammer</h2>
-					<img src="css/images/Tola-square.png" alt="Tola Redhammer">
-					<p class="class"><strong>Class:</strong> Cleric</p>
-					<p class="subclass"><strong>Subclass:</strong> Life Cleric</p>
-					<p class="level"><strong>Level:</strong> 15</p>
-				</section> -->
+				<section id="characterCardOne" class="characterCard hidden">
+					<h2 id="CC1Name"></h2>
+					<img id="CC1Img" src="css/images/Tola-square.png" alt="Tola Redhammer">
+					<p id="CC1Class" class="class"><strong>Class:</strong> Cleric</p>
+					<p id="CC1Subclass" class="subclass"><strong>Subclass:</strong> Life Cleric</p>
+					<p is="CC1Level" class="level"><strong>Level:</strong> 15</p>
+				</section>
 
 				<!-- Input Card -->
 				<section class="characterCard">
@@ -221,11 +221,9 @@
 								</select>
 							</div>
 						</section>
-
-						<button id="charBuilderButton">Let's Roll</button>
-
 					</form>
 
+					<button id="charBuilderButton" type="button">Let's Roll</button>
 				</section>
 
 			</section>

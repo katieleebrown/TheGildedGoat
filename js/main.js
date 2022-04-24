@@ -2,8 +2,6 @@
 document.querySelector('#magicItemButton').addEventListener('click', getMagicItem)
 document.querySelector('#monsterButton').addEventListener('click', getMonster)
 document.querySelector('#npcNameButton').addEventListener('click', getNPC)
-// document.querySelector('i').addEventListener('mouseover', showNav)
-// document.querySelector('main').addEventListener('mouseover', hideNav)
 
 
 // For Random Magic Item by Rarity
@@ -189,28 +187,83 @@ function updateSubclassDropdown() {
     })
 }
 
+
+
 // Storing Character Information in Local Storage
+
 document.querySelector('#charBuilderButton').addEventListener('click', makeCharacter)
 
 function makeCharacter() {
-  let characterName = document.querySelector('#characterName').value
-  localStorage.setItem('charName', characterName)
+  // Determining if characters currently exist in storage, pulling from storage if so
+  let characterList = []
+  if (localStorage.getItem('characterList') !== null) {
+    characterList = JSON.parse(localStorage.getItem('characterList'))
+  }
+  console.log(characterList)
 
-  let characterImg = document.querySelector('#imgUrl').value
-  localStorage.setItem('imgUrl', characterImg)
+  // Creating a new object for new character
+  let character = {
+    'characterName': document.querySelector('#characterName').value,
+    'characterImg': document.querySelector('#imgUrl').value,
+    'accentColor': document.querySelector('#characterColor').value,
+    'charLevel': document.querySelector('#level').value,
+    'charClass': document.querySelector('#classSelect').value,
+    'charSubclass': document.querySelector('#subclassSelect').value,
+  }
 
-  let accentColor = document.querySelector('#characterColor').value
-  localStorage.setItem('charColor', accentColor)
+  // Adding new character to character list
+  characterList.push(character)
+  let charString = JSON.stringify(characterList)
+  console.log(characterList)
+  console.log(charString)
+  localStorage.setItem('characterList', charString)
 
-  let charLevel = document.querySelector('#level').value
-  localStorage.setItem('charLevel', charLevel)
+  // Creating a new card for this character
+  let idName = character.characterName.split(' ').join(', ')
 
-  let charClass = document.querySelector('#classSelect').value
-  localStorage.setItem('charClass', charClass)
+  let newSection = document.createElement('section')
+  newSection.classList.add('characterCard')
 
-  let charSubclass = document.querySelector('#subclassSelect')
-  localStorage.setItem('charSubclass', charSubclass)
+  let heading = document.createElement('h2')
+  heading.setAttribute('id', `${idName}header`)
+  newSection.appendChild(heading)
 
-  // Need to change this code to create an object with the name of the character name. Then sort through objects to populate cards. Should check in local storage on page load.
+  let image = document.createElement('img')
+  image.setAttribute('src', `${character.characterImg}`)
+  image.setAttribute('alt', `${character.characterName}`)
+  newSection.appendChild(image)
+
+  let paragraph = document.createElement('p')
+  paragraph.setAttribute('id', `${idName}class`)
+  newSection.appendChild(paragraph)
+
+
+  let nextParagraph = document.createElement('p')
+  nextParagraph.setAttribute('id', `${idName}subclass`)
+  newSection.appendChild(nextParagraph)
+
+  let lastParagraph = document.createElement('p')
+  lastParagraph.setAttribute('id', `${idName}level`)
+  newSection.appendChild(lastParagraph)
+
+  let cardHolder = document.querySelector('#characterHolder')
+  cardHolder.appendChild(newSection)
+
+  //TODO Heading is not handling character name appropriately
+  // ALSO TODO need page to display all characters in local storage on load. Pull out this next and write a cardmaking function that gets called here.
+  document.querySelector(`#${idName}header`).innerText = character.characterName
+  document.querySelector(`#${idName}header`).style.background = character.accentColor
+  document.querySelector(`#${idName}class`).innerHTML = `<strong>Class: </strong> ${character.charClass}`
+  document.querySelector(`#${idName}subclass`).innerHTML = `<strong>Sublass: </strong> ${character.charSublass}`
+  document.querySelector(`#${idName}level`).innerHTML = `<strong>Level: </strong> ${character.charLevel}`
+
+  // Putting Info into DOM from Local Storage
+  //document.querySelector('#characterCardOne').classList.remove('hidden')
+  //document.querySelector('#CC1Name').innerText = localStorage.getItem('charName')
+  //document.querySelector('#CC1Img').src = localStorage.getItem('imgUrl')
+  //document.querySelector('#CC1Class').innerHTML = `<strong>Class: </strong> ${localStorage.getItem('charClass')}`
+  // document.querySelector('#CC1Subclass').innerHTML = `<strong>Subclass: </strong> ${localStorage.getItem('charSubclass')}`
+  //document.querySelector('#CC1Level').innerHTML = `<strong>Level: </strong> ${localStorage.getItem('charLevel')}`
+  //document.querySelector('CC1Name').style.background = localStorage.getItem('charColor')
 
 }
