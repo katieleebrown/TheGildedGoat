@@ -1,9 +1,10 @@
+// Loading Characters from LocalStorage on Page Load
+document.addEventListener("DOMContentLoaded", showCharacterCards)
+
 //Event Listeners
 document.querySelector('#magicItemButton').addEventListener('click', getMagicItem)
 document.querySelector('#monsterButton').addEventListener('click', getMonster)
 document.querySelector('#npcNameButton').addEventListener('click', getNPC)
-// document.querySelector('i').addEventListener('mouseover', showNav)
-// document.querySelector('main').addEventListener('mouseover', hideNav)
 
 
 // For Random Magic Item by Rarity
@@ -157,9 +158,121 @@ function getNPC() {
 }
 
 
-// Shows Nav Menu
-// function showNav() {
-//   document.querySelector('#navMenu').classList.remove('hidden')
-// }
+// For Character Builder
+// Updating Subclass Options Based on Class Selection
+// TODO FIX VALUE SAVING ISSUE
+// document.querySelector('#subclassSelect').addEventListener('click', updateSubclassDropdown)
 
+function updateSubclassDropdown() {
+  let selectedClass = document.querySelector('#classSelect').value
+  let dropdown = document.querySelector('#subclassSelect')
+  dropdown.length = 0
 
+  let defaultOption = document.createElement('option')
+  defaultOption.text = 'Random'
+  defaultOption.value = 'random'
+
+  dropdown.add(defaultOption)
+  dropdown.selectedIndex = 0
+
+  let url = `https://www.dnd5eapi.co/api/classes/${selectedClass}/subclasses`
+
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      let option
+
+      for (let i = 0; i < data.results.length; i++) {
+        option = document.createElement('option')
+        option.text = data.results[i].name
+        option.value = data.results[i].index
+        dropdown.add(option)
+      }
+    })
+}
+
+// Pulls Character Info on Page Load, calls create a card function for each character
+function showCharacterCards() {
+  if (localStorage.getItem('characterList') !== null) {
+    characterList = JSON.parse(localStorage.getItem('characterList'))
+  }
+
+  characterList.forEach(character => {
+    createCard(character)
+  })
+}
+
+// Creates a card
+function createCard(character) {
+  let idName = character.characterName.split(' ').join('')
+
+    let newSection = document.createElement('section')
+    newSection.classList.add('characterCard')
+    newSection.style.boxShadow = `3px 3px 3px ${character.accentColor}`
+
+    let heading = document.createElement('h2')
+    heading.setAttribute('id', `${idName}header`)
+    newSection.appendChild(heading)
+
+    let image = document.createElement('img')
+    image.setAttribute('src', `${character.characterImg}`)
+    image.setAttribute('alt', `${character.characterName}`)
+    image.style.borderColor = character.accentColor
+    newSection.appendChild(image)
+
+    let paragraph = document.createElement('p')
+    paragraph.setAttribute('id', `${idName}class`)
+    newSection.appendChild(paragraph)
+
+    // Need to get value from created dropdown stuff for this to work
+    // let nextParagraph = document.createElement('p')
+    // nextParagraph.setAttribute('id', `${idName}subclass`)
+    // newSection.appendChild(nextParagraph)
+
+    let lastParagraph = document.createElement('p')
+    lastParagraph.setAttribute('id', `${idName}level`)
+    newSection.appendChild(lastParagraph)
+
+    let cardHolder = document.querySelector('#characterHolder')
+    cardHolder.appendChild(newSection)
+
+    document.querySelector(`#${idName}header`).innerText = character.characterName
+    document.querySelector(`#${idName}header`).style.background = character.accentColor
+    document.querySelector(`#${idName}class`).innerHTML = `<strong>Class: </strong> ${character.charClass}`
+    // document.querySelector(`#${idName}subclass`).innerHTML = `<strong>Sublass: </strong> ${character.charSublass}`
+    document.querySelector(`#${idName}level`).innerHTML = `<strong>Level: </strong> ${character.charLevel}`
+}
+
+// Make a New Character
+document.querySelector('#charBuilderButton').addEventListener('click', makeCharacter)
+
+function makeCharacter() {
+  // Determining if characters currently exist in storage, pulling from storage if so
+  let characterList = []
+  if (localStorage.getItem('characterList') !== null) {
+    characterList = JSON.parse(localStorage.getItem('characterList'))
+  }
+
+  // Creating a new object for new character
+  let character = {
+    'characterName': document.querySelector('#characterName').value,
+    'characterImg': document.querySelector('#imgUrl').value,
+    'accentColor': document.querySelector('#characterColor').value,
+    'charLevel': document.querySelector('#level').value,
+    'charClass': document.querySelector('#classSelect').value,
+    //'charSubclass': document.querySelector('#subclassSelect').value,
+  }
+
+  // Adding new character to character list
+  characterList.push(character)
+  let charString = JSON.stringify(characterList)
+  console.log(characterList)
+  console.log(charString)
+  localStorage.setItem('characterList', charString)
+
+  // Creating a new card for this character
+  createCard(character)
+
+  //Clear Card to add new Characters
+  document.querySelector('.characterBuilder').reset()
+}
