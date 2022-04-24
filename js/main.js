@@ -276,3 +276,5 @@ function makeCharacter() {
   //Clear Card to add new Characters
   document.querySelector('.characterBuilder').reset()
 }
+
+//TODO:Need random selections to roll a random character. Random Button ? 
