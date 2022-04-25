@@ -195,11 +195,11 @@ function updateSubclassDropdown() {
 function showCharacterCards() {
   if (localStorage.getItem('characterList') !== null) {
     characterList = JSON.parse(localStorage.getItem('characterList'))
-  }
 
-  characterList.forEach(character => {
-    createCard(character)
-  })
+    characterList.forEach(character => {
+      createCard(character)
+    })
+  }
 }
 
 // Creates a card
@@ -229,6 +229,10 @@ function createCard(character) {
     // nextParagraph.setAttribute('id', `${idName}subclass`)
     // newSection.appendChild(nextParagraph)
 
+    let anotherParagraph = document.createElement('p')
+    anotherParagraph.setAttribute('id', `${idName}race`)
+    newSection.appendChild(anotherParagraph)
+
     let lastParagraph = document.createElement('p')
     lastParagraph.setAttribute('id', `${idName}level`)
     newSection.appendChild(lastParagraph)
@@ -240,6 +244,7 @@ function createCard(character) {
     document.querySelector(`#${idName}header`).style.background = character.accentColor
     document.querySelector(`#${idName}class`).innerHTML = `<strong>Class: </strong> ${character.charClass}`
     // document.querySelector(`#${idName}subclass`).innerHTML = `<strong>Sublass: </strong> ${character.charSublass}`
+    document.querySelector(`#${idName}race`).innerHTML = `<strong>Race: </strong> ${character.charRace}`
     document.querySelector(`#${idName}level`).innerHTML = `<strong>Level: </strong> ${character.charLevel}`
 }
 
@@ -260,7 +265,22 @@ function makeCharacter() {
     'accentColor': document.querySelector('#characterColor').value,
     'charLevel': document.querySelector('#level').value,
     'charClass': document.querySelector('#classSelect').value,
+    'charRace' : document.querySelector('#raceSelect').value,
     //'charSubclass': document.querySelector('#subclassSelect').value,
+  }
+
+  if (character.charClass === 'random') {
+    let randomNumber = Math.floor(Math.random() * 12)
+    let classOptions = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
+
+    character.charClass = classOptions[randomNumber]
+  }
+
+  if (character.charRace === 'random') {
+    let randomNumber = Math.floor(Math.random() * 9)
+    let raceOptions = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Halfling', 'HalfElf', 'HalfOrc', 'Human', 'Tiefling']
+
+    character.charRace = raceOptions[randomNumber]
   }
 
   // Adding new character to character list
