@@ -140,7 +140,7 @@ header > button {
   padding-bottom: 10px;
   margin-top: 0;
 }
-.generator > button:hover, .formBox > button:hover, .characterBuilder > button:hover {
+.generator > button:hover, .formBox > button:hover, #characterBuilderButton:hover {
   background-color: #a09c9b;
 }
 p {
