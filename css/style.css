@@ -99,13 +99,13 @@ header > button {
   width: 55%;
 }
 #gildedGoatIntro > img {
-  width: 30%;
+  width: 40%;
   height: auto;
 }
 .buttonHolder {
-  width: 50%;
+  width: 80%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: auto;
 }
 
@@ -220,7 +220,43 @@ p {
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+@media screen and (max-width: 1000px) {
+  .buttonHolder {
+    width: 100%;
+  }
+
+  #gildedGoatIntro > img {
+    width: 50%;
+    height: auto;
+  }
+}
+
 @media screen and (max-width: 750px) {
+  #gildedGoatIntro {
+    flex-direction: column;
+  }
+  .oneThird {
+    width: 90%;
+  }
+  
+  .twoThirds {
+    width: 80%;
+  }
+
+  #gildedGoatIntro > img {
+    width: 80%;
+    height: auto;
+  }
+
+  .buttonHolder {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttonHolder > button {
+    margin: 5px;
+  }
+  
   .generatorContainer {
     flex-direction: column;
     align-items: center;
@@ -230,4 +266,12 @@ p {
     width: 90%;
   }
 
+  #characterHolder {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .characterCard {
+    width: 90%;
+  }
 }
