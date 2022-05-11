@@ -1,6 +1,7 @@
-# TheGildedGoat
-The Gilded Goat is a personal project designed to house resources to streamline D&D games for both GMs and Players. 
-Because D&D experiences can be very different between the two, resources are split along those lines. 
+# The Gilded Goat
+The Gilded Goat is a personal project designed to house resources to streamline D&D games for both GMs and Players. Because D&D experiences can be very different between the two, resources are split along those lines. This is an ongoing project with new features added as time permits and new problems to solve come up.
+
+You can take a look at the live version of this project, here: https://thegildedgoat.netlify.app/
 
 # For GMs:
 Many of the resources built for GMs include random generators - keeping games moving quickly by letting you grab a random item when your player rolls a high investigation, snag a new monster to help flesh out your dungeon, or create yet another NPC when the party decides to RP with everyone in this random shop you made up on the spot.
