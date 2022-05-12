@@ -8,12 +8,16 @@ Many of the resources built for GMs include random generators - keeping games mo
 
 Currently, the GM resources are built with HTML, CSS, JS. I've used 2 APIs - https://www.dnd5eapi.co/docs/#overview--getting-started and https://open5e.com/api-docs
 
+![image of webpage with three cards holding gm asst sections. Includes random item generator, random monster generator, and npc name generator](https://raw.githubusercontent.com/katieleebrown/TheGildedGoat/main/gmsasst.JPG)
+
 Future goals for the GM resources include saving NPC information for when your party inevitably returns to the same random shop again and a tavern/shop name generator.
 
 # For Players: 
 In Progress is a character builder that will allow players to house their character builds and generate random characters for quick one-shots. This is being built with HTML, CSS, and JS. 
 
 APIs for this project include: https://www.dnd5eapi.co/docs/#overview--getting-started and https://open5e.com/api-docs
+
+![image of webpage with three character cards. One has a form to make new characters, two hold preciously created characters](https://raw.githubusercontent.com/katieleebrown/TheGildedGoat/main/characterbuilder.JPG)
 
 # SRD-Only Content
 Please note: this is a free personal project built for fun that uses content from Wizard's of The Coast's Dungeons and Dragons 5e. As such, all information included on this repository and the published site will only include SRD information, as all else is a part of their Published IP.
